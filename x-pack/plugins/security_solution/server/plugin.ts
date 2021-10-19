@@ -42,7 +42,6 @@ import {
 } from '../../rule_registry/server';
 import { PluginSetupContract as FeaturesSetup } from '../../features/server';
 import { MlPluginSetup as MlSetup } from '../../ml/server';
-import { CloudSetup } from '../../cloud/server';
 import { ListPluginSetup } from '../../lists/server';
 import { EncryptedSavedObjectsPluginSetup as EncryptedSavedObjectsSetup } from '../../encrypted_saved_objects/server';
 import { SpacesPluginSetup as SpacesSetup } from '../../spaces/server';
@@ -127,7 +126,6 @@ export interface SetupPlugins {
   taskManager?: TaskManagerSetupContract;
   telemetry?: TelemetryPluginSetup;
   usageCollection?: UsageCollectionSetup;
-  cloud: CloudSetup;
 }
 
 export interface StartPlugins {
@@ -305,7 +303,6 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
       plugins.security,
       this.telemetryEventsSender,
       plugins.ml,
-      plugins.cloud.isCloudEnabled,
       ruleDataService,
       this.logger,
       isRuleRegistryEnabled

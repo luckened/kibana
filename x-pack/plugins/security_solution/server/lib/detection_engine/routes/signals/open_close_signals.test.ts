@@ -39,7 +39,7 @@ describe('set signal status', () => {
         getCurrentUser: jest.fn().mockReturnValue({ user: { username: 'my-username' } }),
       },
     } as unknown as SetupPlugins['security'];
-    setSignalsStatusRoute(server.router, securityMock, true, telemetrySenderMock);
+    setSignalsStatusRoute(server.router, securityMock, telemetrySenderMock);
   });
 
   describe('status on signal', () => {
