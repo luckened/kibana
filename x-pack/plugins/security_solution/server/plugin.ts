@@ -305,7 +305,7 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
       plugins.security,
       this.telemetryEventsSender,
       plugins.ml,
-      plugins.cloud,
+      plugins.cloud.isCloudEnabled,
       ruleDataService,
       this.logger,
       isRuleRegistryEnabled
